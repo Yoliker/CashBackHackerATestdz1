@@ -1,60 +1,56 @@
 package ru.netology.service;
 
+import org.junit.jupiter.api.Assertions;
 
+public class CashbackHackServiceAPITest {
+    @org.junit.jupiter.api.Test
 
-import static org.junit.Assert.assertEquals;
-
-public class CashbackHackServiceTest {
-
-    @org.junit.Test
     public void shouldSuggestAddingGoodsIfLessThanBoundary() {
         CashbackHackService service = new CashbackHackService();
         int amount = 900;
 
         int actual = service.remain(amount);
         int expected = 100;
-        assertEquals(expected, actual);
+       Assertions.assertEquals(expected, actual);
     }
 
-    @org.junit.Test
+    @org.junit.jupiter.api.Test
     public void shouldSuggestAddingGoodsIfOneUnderBoundary() {
         CashbackHackService service = new CashbackHackService();
         int amount = 999;
 
         int actual = service.remain(amount);
         int expected = 1;
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
-    @org.junit.Test
+    @org.junit.jupiter.api.Test
     public void shouldNotSuggestAddingGoodsIfEqualToBoundary() {
         CashbackHackService service = new CashbackHackService();
         int amount = 1000;
 
         int actual = service.remain(amount);
         int expected = 0;
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
-    @org.junit.Test
+    @org.junit.jupiter.api.Test
     public void shouldSuggestAddingGoodsIfOneUpperBoundary() {
         CashbackHackService service = new CashbackHackService();
         int amount = 1001;
 
         int actual = service.remain(amount);
         int expected = 999;
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
-    @org.junit.Test
+    @org.junit.jupiter.api.Test
     public void shouldSuggestAddingGoodsIfMoreThanBoundary() {
         CashbackHackService service = new CashbackHackService();
         int amount = 1201;
 
         int actual = service.remain(amount);
         int expected = 799;
-        assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
-
 }
-
